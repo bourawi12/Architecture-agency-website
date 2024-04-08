@@ -56,8 +56,8 @@ $res = $us->listeprojects();
                                 <td><img src="assets/img/<?php echo $row['img_princ']; ?>" width="50" height="50"></td>
                                 <td><img src="assets/img/<?php echo $row['img_sec']; ?>" width="50" height="50"></td>
                                 <td>
-                                    <a href="delete.php?id_etd=<?= $row['id']; ?>">Supprimer</a>
-                                    <a href="modifForm.php?id_etd=<?php echo $row['id']; ?>">Modifier</a>
+                                    <a href="delete.php?id_proj=<?= $row['id']; ?>">Supprimer</a>
+                                    <a href="modifForm.php?id_proj=<?php echo $row['id']; ?>">Modifier</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
