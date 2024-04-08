@@ -1,32 +1,45 @@
 <?php
 require_once('project.class.php');
-$et=new Project(); 
-$id = $_POST['id'];
-$et->title = $_POST['ftitle'];
-$et->type = $_POST['ftype'];
-$et->emplacement = $_POST['emplacement'];
-$et->surface = $_POST['surface'];
-$et->annee = $_POST['annee'];
-$et->statut = $_POST['statut'];
-$et->description = $_POST['description'];
-$et->img_princ=$_FILES['img_princ']['name'];
-$et->img_sec=$_FILES['img_sec']['name'];
+$et = new Project(); 
 
-$img_princ = $_FILES['img_princ']['name'];
-$img_sec = $_FILES['img_sec']['name'];
+// Check if form fields are set before accessing them
+$id = isset($_POST['id']) ? $_POST['id'] : null;
+$title = isset($_POST['ftitle']) ? $_POST['ftitle'] : null;
+$type = isset($_POST['ftype']) ? $_POST['ftype'] : null;
+$emplacement = isset($_POST['emplacement']) ? $_POST['emplacement'] : null;
+$surface = isset($_POST['surface']) ? $_POST['surface'] : null;
+$annee = isset($_POST['annee']) ? $_POST['annee'] : null;
+$statut = isset($_POST['statut']) ? $_POST['statut'] : null;
+$description = isset($_POST['description']) ? $_POST['description'] : null;
 
-if ($img_princ != "") {
-    $fichierTemp1 = $_FILES['img_princ']['tmp_name'];
-    move_uploaded_file($fichierTemp1, 'assets/img/' . $img_princ);
+// Set the project attributes
+$et->id = $id;
+$et->title = $title;
+$et->type = $type;
+$et->emplacement = $emplacement;
+$et->surface = $surface;
+$et->annee = $annee;
+$et->statut = $statut;
+$et->description = $description;
+$et->img_princ = isset($_FILES['img_princ']['name']) ? $_FILES['img_princ']['name'] : null;
+$et->img_sec = isset($_FILES['img_sec']['name']) ? $_FILES['img_sec']['name'] : null;
+
+// Check if images are provided and move them
+if ($et->img_princ != "") {
+    $fichierTemp1 = isset($_FILES['img_princ']['tmp_name']) ? $_FILES['img_princ']['tmp_name'] : null;
+    if ($fichierTemp1 !== null) {
+        move_uploaded_file($fichierTemp1, 'assets/img/' . $et->img_princ);
+    }
 }
 
-if ($img_sec != "") {
-    $fichierTemp2 = $_FILES['img_sec']['tmp_name'];
-    move_uploaded_file($fichierTemp2, 'assets/img/' . $img_sec);
+if ($et->img_sec != "") {
+    $fichierTemp2 = isset($_FILES['img_sec']['tmp_name']) ? $_FILES['img_sec']['tmp_name'] : null;
+    if ($fichierTemp2 !== null) {
+        move_uploaded_file($fichierTemp2, 'assets/img/' . $et->img_sec);
+    }
 }
 
+// Modify project details in the database
 $et->modifierprojphoto($id);
 header('location:liste_projects.php');
-
-
 ?>

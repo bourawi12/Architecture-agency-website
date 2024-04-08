@@ -29,12 +29,12 @@
     $img_sec = $data[0]["img_sec"];
 
     /* récupération des données du formulaire */
-    $id_etd = $_GET['id_etd'];
+    $id_proj = $_GET['id_proj'];
 
     ?>
 
     <fieldset>
-        <legend>Modifier un étudiant</legend>
+        <legend>Modifier un projet</legend>
 
         <form action="modifier.php" method="post" enctype="multipart/form-data">
             <table class='table table-striped'>
