@@ -28,7 +28,7 @@ $req="INSERT INTO `projects`(`id`, `title`, `type`, `emplacement`, `surface`, `a
 $pdo->exec($req) or print_r($pdo->errorInfo());
 }
 
-function listetudiants()
+function listeprojects()
 {
 require_once('pdo.php');
 $cnx=new connexion();
@@ -40,7 +40,7 @@ return $res;
 }
 
 
-function getetud($id)
+function getproj($id)
 {
 require_once('connexion.php');
 $cnx=new connexion();
@@ -50,7 +50,7 @@ $res=$pdo->query($req) or print_r($pdo->errorInfo());
 return $res;
 }
 
-function modifieretud($id)
+function modifierproj($id)
 {
 require_once('connexion.php');
 $cnx=new connexion();
@@ -60,7 +60,7 @@ $req="UPDATE `projects` SET `title`='$this->title',`type`='$this->type',`emplace
 $pdo->exec($req) or print_r($pdo->errorInfo());
 }
 
-function modifieretudssphoto($id)
+function modifierprojphoto($id)
 {
 require_once('connexion.php');
 $cnx=new connexion();
@@ -69,7 +69,7 @@ $req="UPDATE etudiant SET  `title`='$this->title',`type`='$this->type',`emplacem
 $pdo->exec($req) or print_r($pdo->errorInfo());
 }
 
-function supprimeretud($id)
+function supprimerproj($id)
 {
 require_once('connexion.php');
 $cnx=new connexion();
