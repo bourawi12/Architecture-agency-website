@@ -197,9 +197,12 @@
         </select></td>
         
     </tr>
-        <tr>
+    <tr>
         <td>statut :</td>
         <td><input type="text" name="statut" size="20"/></td></tr>
+    <tr>
+        <td>description :</td>
+        <td><input type="text" name="description" size="20"/></td></tr>
     <tr>
         <td>Photo principale :</td>
         <td><input type="file" name="img_princ" /></td></tr>

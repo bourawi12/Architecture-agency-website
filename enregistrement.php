@@ -10,6 +10,7 @@ $et->emplacement = $_POST['emplacement'];
 $et->surface = $_POST['surface'];
 $et->annee = $_POST['annee'];
 $et->statut = $_POST['statut'];
+$et->description = $_POST['description'];
 $et->img_princ=$_FILES['img_princ']['name'];
 $fichierTemp=$_FILES['img_princ']['tmp_name'];
 $et->img_sec=$_FILES['img_sec']['name'];

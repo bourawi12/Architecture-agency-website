@@ -36,6 +36,7 @@ $res = $us->listeprojects();
                                 <th>Surface</th>
                                 <th>Annee</th>
                                 <th>Statut</th>
+                                <th>description</th>
                                 <th>Image Principale</th>
                                 <th>Image Secondaire</th>
                                 <th>Actions</th>
@@ -51,6 +52,7 @@ $res = $us->listeprojects();
                                 <td><?php echo $row['surface']; ?></td>
                                 <td><?php echo $row['annee']; ?></td>
                                 <td><?php echo $row['statut']; ?></td>
+                                <td><?php echo $row['description']; ?></td>
                                 <td><img src="assets/img/<?php echo $row['img_princ']; ?>" width="50" height="50"></td>
                                 <td><img src="assets/img/<?php echo $row['img_sec']; ?>" width="50" height="50"></td>
                                 <td>

@@ -8,5 +8,6 @@
      $e->surface= "1300";
      $e->annee="2000";
      $e->statut= "etude";
+     $e->description= "desc";
      $e->insertProject();
 ?>
