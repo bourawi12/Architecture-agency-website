@@ -296,7 +296,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 .single-welcome-hero-form input {
     margin-left: 10px;
     height: 70px;
-    width: 535px;
+    width: 750px;
     border: 0;
     background: transparent;
 }
@@ -948,4 +948,41 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     0%   {bottom:0px;}
     100%  {bottom:7px;}
 }
+ .search-container {
+        position: relative;
+        margin: 20px auto;
+        width: 300px;
+    }
+
+    #search-input {
+        /*width: 100%;*/
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    #options-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        width: 100%;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-top: none;
+        border-radius: 0 0 5px 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: none;
+    }
+
+    #options-list option {
+        padding: 8px 10px;
+        cursor: pointer;
+    }
+
+    #options-list option:hover {
+        background-color: #f0f0f0;
+    }
 /*========================Thank you=================
