@@ -23,6 +23,68 @@ $et->annee = $annee;
 $et->statut = $statut;
 $et->description = $description;
 
+
+if (isset($_POST['envoyer'])){
+    require_once(connexion.php);
+    $images = $_FILES['images'];
+
+    # Number of images
+    $num_of_imgs = count($images['name']);
+
+    for ($i=0; $i< $num_of_imgs ;$i++){
+        #get the image info and store them in var
+        $image_name = $images['name'][$i];
+        $tmp_name   = $images['tmp_name'][$i];
+        $error      = $images['error'][$i];
+
+
+        #if there is no error occured while uploading
+        
+        if($error ===0){
+            # get image extension store it in var 
+            $img_ex = pathinfo($image_name,PATHINFO_EXTENSION);
+           
+            $img_ex_lc = strtolower($img_ex);
+
+            $allowed_exs =array('jpg','jpeg','png');
+
+            
+
+            if(in_array($img_ex_lc,$allowed_exs)){
+
+                $new_img_name = uniqid('IMG-',true).'.'.$img_ex_lc;
+
+                $img_upload_path = 'assets/img/'.$new_img_name;
+
+                #inserting image name into database ;
+                
+            }else{
+                $em = "you can t upload file of this type";
+
+                /*
+                    redirect to modifForm.php and passing the error message
+                */
+    
+                header("Location :modifForm.php?error=$em"); 
+            }
+
+        }else{
+            $em = "Unknown Error Occured while uploading";
+
+            /*
+                redirect to modifForm.php and passing the error message
+            */
+
+            header("Location :modifForm.php?error=$em");
+        }
+    }
+
+    //echo "<pre>";
+    //print_r($_FILES['images']['name'][1]);
+}
+
+
+/*
 // Check if images are provided and move them
 if ($_FILES['img_princ']['name'] != "") {
     $et->img_princ = $_FILES['img_princ']['name'];
@@ -38,7 +100,7 @@ if ($_FILES['img_sec']['name'] != "") {
 
 // Modify project details in the database
 $et->modifierprojphoto($id);
-header('location:liste_projects.php');
+header('location:liste_projects.php');*/
 /*
 if(isset($_POST['envoyer'])) {
     if(isset($_FILES['img_princ']) && isset($_FILES['img_sec']) && isset($_POST['ftitle']) && isset($_POST['ftype']) && isset($_POST['emplacement']) && isset($_POST['fsurface']) && isset($_POST['annee']) && isset($_POST['fstatut']) && isset($_POST['fdescription'])) {
