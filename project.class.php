@@ -45,6 +45,17 @@ $req="SELECT * FROM projects where id=$id";
 $res=$pdo->query($req) or print_r($pdo->errorInfo()); 	
 return $res;
 }
+function modifier($title,$type,$emplacement,$surface,$annee,$statut,$img_princ,$img_sec,$id)
+{
+  if(require("connexion.php"))
+  {
+    $req = $access->prepare("UPDATE `projects` SET `title`=?, `type`=?, `emplacement`=?, `surface`=?, `annee`=?, `statut`=?, `description`=? WHERE id=?");
+
+    $req->execute(array($title,$type,$emplacement,$surface,$annee,$statut,$img_princ,$img_sec,$id));
+
+    $req->closeCursor();
+  }
+}
 
 function modifierproj($id)
 {
