@@ -137,7 +137,7 @@
 
                 <tr>
                     <td>img_sec: <input type="file" name="img_sec" multiple /> </td>
-                    <!--<td><img src="assets/img/<?= $img_sec ?>" width="50" height="50"></td>-->
+                    <td><img src="assets/img/<?= $img_sec ?>" width="50" height="50"></td>
                 </tr>
                 
                 <table>
