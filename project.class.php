@@ -79,6 +79,24 @@ $req="UPDATE `projects` SET `title`='$this->title', `type`='$this->type', `empla
 //$req="UPDATE etudiant SET  `title`='$this->title',`type`='$this->type',`emplacement`='sexe='$this->type',`surface`='$this->surface',`annee`='$this->annee',`statut`='$this->statut' WHERE id=$id";
 $pdo->exec($req) or print_r($pdo->errorInfo());
 }
+function modifierimg_princ($id)
+{
+    require_once('connexion.php');
+    $cnx = new connexion();
+    $pdo = $cnx->CNXbase();
+    $req = "UPDATE `projects` SET `img_princ`='$this->img_princ' WHERE id=$id";
+    $pdo->exec($req) or print_r($pdo->errorInfo());
+}
+
+function modifierimg_sec($id)
+{
+    require_once('connexion.php');
+    $cnx = new connexion();
+    $pdo = $cnx->CNXbase();
+    $req = "UPDATE `projects` SET `img_sec`='$this->img_sec' WHERE id=$id";
+    $pdo->exec($req) or print_r($pdo->errorInfo());
+}
+
 
 function supprimerproj($id)
 {
