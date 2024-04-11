@@ -1,3 +1,13 @@
+<?php
+require("project.class.php");
+
+// Create an instance of the Project class
+$project = new Project();
+
+// Call the afficher() method on the Project object
+$Projects = $project->afficher();
+
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -348,10 +358,11 @@
 				</div><!--/.section-header-->
 				<div class="explore-content">
 					<div class="row">
-						<div class=" col-md-4 col-sm-6">
+						<div class=" col-md-4 col-sm-6"><!--First project-->
+													<?php foreach($Projects as $Project): ?>
 							<div class="single-explore-item">
 								<div class="single-explore-img">
-									<img src="assets/images/explore/e1.jpg" alt="explore image">
+									<img src="assets/img/<?= $Project->img_sec ?>" alt="explore image">
 									<div class="single-explore-img-info">
 										<button onclick="window.location.href='#'">best rated</button>
 										<div class="single-explore-image-icon-box">
@@ -371,29 +382,27 @@
 									</div>
 								</div>
 								<div class="single-explore-txt bg-theme-1">
-									<h2><a href="#">tommy helfinger bar</a></h2>
+									<h2><a href="#"><?= $Project->title ?></a></h2>
 									<p class="explore-rating-price">
 										<span class="explore-rating">5.0</span>
-										<a href="#"> 10 ratings</a> 
+										<a href="#"> <?= $Project->type ?></a> 
 										<span class="explore-price-box">
 											form
-											<span class="explore-price">5$-300$</span>
+											<span class="explore-price"><?= $Project->emplacement ?></span>
 										</span>
-										 <a href="#">resturent</a>
+										<a href="#"><?= $Project->type ?></a>
 									</p>
 									<div class="explore-person">
 										<div class="row">
 											<div class="col-sm-2">
 												<div class="explore-person-img">
 													<a href="#">
-														<img src="assets/images/explore/person.png" alt="explore person">
+														<img src="assets/img/<?= $Project->img_princ ?>" alt="explore person">
 													</a>
 												</div>
 											</div>
 											<div class="col-sm-10">
-												<p>
-													Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incid ut labore et dolore magna aliqua.... 
-												</p>
+												<p><?= $Project->description ?></p>
 											</div>
 										</div>
 									</div>
@@ -413,7 +422,8 @@
 									</div>
 								</div>
 							</div>
-						</div>
+							<?php endforeach; ?>
+							<!--Second project-->							
 						<div class="col-md-4 col-sm-6">
 							<div class="single-explore-item">
 								<div class="single-explore-img">

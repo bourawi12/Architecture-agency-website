@@ -108,5 +108,26 @@ $req="DELETE FROM projects WHERE id='$id'";
 $pdo->exec($req);
 }
 
+function afficher()
+{
+    if (require("connexion.php")) {
+        $cnx = new connexion();
+        $pdo = $cnx->CNXbase();
+        $req = "SELECT * FROM `projects` ORDER BY id DESC";
+
+        // Execute the query using $pdo
+        $statement = $pdo->query($req);
+
+        // Fetch all rows from the result set
+        $data = $statement->fetchAll(PDO::FETCH_OBJ);
+
+        // Close the cursor (not necessary for SELECT queries)
+        // $statement->closeCursor();
+
+        return $data;
+    }
+}
+
+
 //fin de la classe
  } ?>
