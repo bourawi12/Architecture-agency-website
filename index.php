@@ -103,7 +103,7 @@ $Projects = $project->afficher();
 								+1 222 777 6565
 							</li>
 							<li class="header-top-contact">
-								<a href="#">sign in</a>
+								<a href="login.php">sign in</a>
 							</li>
 							<li class="header-top-contact">
 								<a href="#">register</a>
@@ -358,8 +358,9 @@ $Projects = $project->afficher();
 				</div><!--/.section-header-->
 				<div class="explore-content">
 					<div class="row">
-						<div class=" col-md-4 col-sm-6"><!--First project-->
-													<?php foreach($Projects as $Project): ?>
+					<?php foreach($Projects as $Project): ?>
+						<div class="col-md-4 col-sm-6"><!--First project-->
+													
 							<div class="single-explore-item">
 								<div class="single-explore-img">
 									<img src="assets/img/<?= $Project->img_sec ?>" alt="explore image">
@@ -422,8 +423,9 @@ $Projects = $project->afficher();
 									</div>
 								</div>
 							</div>
-							<?php endforeach; ?>
-							<!--Second project-->							
+							
+							
+							<!--Second project--></div>	<?php endforeach; ?>						
 						<div class="col-md-4 col-sm-6">
 							<div class="single-explore-item">
 								<div class="single-explore-img">
