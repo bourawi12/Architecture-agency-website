@@ -983,7 +983,7 @@ $Projects = $project->afficher();
 					<div class="col-md-3 col-sm-6">
 						<div class="single-ststistics-box">
 							<div class="statistics-content">
-								<div class="counter">90 </div> <span>K+</span>
+								<div class="counter">95 </div> <span>K+</span>
 							</div><!--/.statistics-content-->
 							<h3>listings</h3>
 						</div><!--/.single-ststistics-box-->

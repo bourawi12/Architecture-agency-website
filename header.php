@@ -42,6 +42,8 @@
         <span>
             <a href="liste_projects.php">Liste des projets</a>
             <a href="formulaireAjout.php">Ajouter un projets</a>
+            <a href="liste_projects.php">Liste des clients</a>
+            <a href="formulaireAjoutclient.php">Ajouter un client</a>
         </span>
         <span class="droite">
             <a href="deconnexion.php">Déconnexion</a>
