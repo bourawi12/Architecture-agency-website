@@ -129,7 +129,7 @@ $Projects = $project->afficher();
 			                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
 			                    <i class="fa fa-bars"></i>
 			                </button>
-			                <a class="navbar-brand" href="index.html">list<span>race</span></a>
+			                <a class="navbar-brand" href="index.php">list<span>race</span></a>
 
 			            </div><!--/.navbar-header-->
 			            <!-- End Header Navigation -->
@@ -414,9 +414,8 @@ $Projects = $project->afficher();
 											</div>
 											<div class="col-sm-7">
 												<div class="explore-map-icon">
-													<a href="#"><i data-feather="map-pin"></i></a>
-													<a href="#"><i data-feather="upload"></i></a>
-													<a href="#"><i data-feather="heart"></i></a>
+													
+													<a href="project.php?proj=<?= $Project->id ?>"><button type="button" class="btn btn-sm btn-success">Voir plus</button></a>
 												</div>
 											</div>
 										</div>
