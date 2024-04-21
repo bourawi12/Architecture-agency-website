@@ -145,67 +145,67 @@ public $avis;
 
 /* constructeur de la classe */
 
-function insertProject()
+function insertClient()
 {
     require_once('connexion.php');
     $cnx = new connexion();
     $pdo = $cnx->CNXbase();
-    $req = "INSERT INTO `projects`(`title`, `type`, `emplacement`, `surface`, `annee`, `statut`, `description`, `img_princ`, `img_sec`)
-            VALUES ('$this->title','$this->type','$this->emplacement','$this->surface','$this->annee','$this->statut','$this->description','$this->img_princ','$this->img_sec')";
+    $req = "INSERT INTO `client`(`id`, `img`, `nom`, `emplacement`, `nb_etoile`, `avis`)
+            VALUES ('$this->img','$this->nom','$this->emplacement','$this->nb_etoile','$this->avis')";
 
     $pdo->exec($req) or print_r($pdo->errorInfo());
 }
-function listeprojects()
+function listeclients()
 {
 require_once('connexion.php');
 $cnx=new connexion();
 $pdo=$cnx->CNXbase();
           
-$req="SELECT * FROM projects";
+$req="SELECT * FROM client";
 $res=$pdo->query($req) or print_r($pdo->errorInfo()); 	
 return $res; 
 }
 
 
-function getproj($id)
+function getclient($id)
 {
 require_once('connexion.php');
 $cnx=new connexion();
 $pdo=$cnx->CNXbase();
-$req="SELECT * FROM projects where id=$id";
+$req="SELECT * FROM client where id=$id";
 $res=$pdo->query($req) or print_r($pdo->errorInfo()); 	
 return $res;
 }
-function modifier($title,$type,$emplacement,$surface,$annee,$statut,$img_princ,$img_sec,$id)
+function modifier2($img,$nom,$emplacement,$nb_etoile,$avis)
 {
   if(require("connexion.php"))
   {
-    $req = $access->prepare("UPDATE `projects` SET `title`=?, `type`=?, `emplacement`=?, `surface`=?, `annee`=?, `statut`=?, `description`=? WHERE id=?");
+    $req = $access->prepare("UPDATE `client` SET  `img`=?,`nom`=?,`emplacement`=?,`nb_etoile`=?,`avis`=? WHERE id=?");
 
-    $req->execute(array($title,$type,$emplacement,$surface,$annee,$statut,$img_princ,$img_sec,$id));
+    $req->execute(array($id,$img,$nom,$nb_etoile,$avis));
 
     $req->closeCursor();
   }
 }
 
-function modifierproj($id)
+function modifierclient($id)
 {
 require_once('connexion.php');
 $cnx=new connexion();
 $pdo=$cnx->CNXbase();
-$req="UPDATE `projects` SET `title`='$this->title', `type`='$this->type', `emplacement`='$this->emplacement', `surface`='$this->surface', `annee`='$this->annee', `statut`='$this->statut',`description`='$this->description', `img_princ`='$this->img_princ', `img_sec`='$this->img_sec' WHERE id=$id";
+$req="UPDATE `client` SET `img`='$this->img', `nom`='$this->nom', `nb_etoile`='$this->nb_etoile', `avis`='$this->avis' WHERE id=$id";
 
 //$req="UPDATE `projects` SET `title`='$this->title',`type`='$this->type',`emplacement`='sexe='$this->type',`surface`='$this->surface',`annee`='$this->annee',`statut`='$this->statut',`img_princ`='$this->img_princ',`img_sec`='$this->img_sec'  WHERE id=$id";
 //$req="UPDATE projects SET  nom='$this->nom', prenom='$this->prenom', sexe='$this->sexe', an_naissance=$this->an_naissance, photo='$this->photo' WHERE id=$id";
 $pdo->exec($req) or print_r($pdo->errorInfo());
 }
 
-function modifierprojphoto($id)
+function modifierclientphoto($id)
 {
 require_once('connexion.php');
 $cnx=new connexion();
 $pdo=$cnx->CNXbase();
-$req="UPDATE `projects` SET `title`='$this->title', `type`='$this->type', `emplacement`='$this->emplacement', `surface`='$this->surface', `annee`='$this->annee', `statut`='$this->statut',`description`='$this->description' WHERE id=$id";
+$req="UPDATE `client` SET `nom`='$this->nom', `nb_etoile`='$this->nb_etoile', `avis`='$this->avis' WHERE id=$id";
 
 //$req="UPDATE etudiant SET  `title`='$this->title',`type`='$this->type',`emplacement`='sexe='$this->type',`surface`='$this->surface',`annee`='$this->annee',`statut`='$this->statut' WHERE id=$id";
 $pdo->exec($req) or print_r($pdo->errorInfo());
@@ -215,36 +215,27 @@ function modifierimg_princ($id)
     require_once('connexion.php');
     $cnx = new connexion();
     $pdo = $cnx->CNXbase();
-    $req = "UPDATE `projects` SET `img_princ`='$this->img_princ' WHERE id=$id";
-    $pdo->exec($req) or print_r($pdo->errorInfo());
-}
-
-function modifierimg_sec($id)
-{
-    require_once('connexion.php');
-    $cnx = new connexion();
-    $pdo = $cnx->CNXbase();
-    $req = "UPDATE `projects` SET `img_sec`='$this->img_sec' WHERE id=$id";
+    $req = "UPDATE `client` SET `img`='$this->img' WHERE id=$id";
     $pdo->exec($req) or print_r($pdo->errorInfo());
 }
 
 
-function supprimerproj($id)
+function supprimerclient($id)
 {
 require_once('connexion.php');
 $cnx=new connexion();
 $pdo=$cnx->CNXbase();
 
-$req="DELETE FROM projects WHERE id='$id'"; 
+$req="DELETE FROM client WHERE id='$id'"; 
 $pdo->exec($req);
 }
 
-function afficher()
+function afficherclient()
 {
     if (require("connexion.php")) {
         $cnx = new connexion();
         $pdo = $cnx->CNXbase();
-        $req = "SELECT * FROM `projects` ORDER BY id DESC";
+        $req = "SELECT * FROM `client` ORDER BY id DESC";
 
         // Execute the query using $pdo
         $statement = $pdo->query($req);

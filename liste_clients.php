@@ -8,14 +8,14 @@ Verifier_session();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des projets</title>
+    <title>Liste des clients</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
 <?php
 require_once('project.class.php');
-$us = new Project();
-$res = $us->listeprojects();
+$us = new Client();
+$res = $us->listeclients();
 ?>
 
 <div class="container">
@@ -23,40 +23,31 @@ $res = $us->listeprojects();
         <div class="col-md-12">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h1>Liste des projets</h1>
+                    <h1>Liste des clients</h1>
                 </div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Title</th>
-                                <th>Type</th>
+                                <th>nom</th>
                                 <th>Emplacement</th>
-                                <th>Surface</th>
-                                <th>Annee</th>
-                                <th>Statut</th>
-                                <th>description</th>
-                                <th>Image Principale</th>
-                                <th>Image Secondaire</th>
-                                <th>Actions</th>
+                                <th>nb_etoile</th>
+                                <th>avis</th>
+                                <th>img</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($res as $row): ?>
                             <tr>
                                 <td><?php echo $row['id']; ?></td>
-                                <td><?php echo $row['title']; ?></td>
-                                <td><?php echo $row['type']; ?></td>
+                                <td><?php echo $row['nom']; ?></td>
                                 <td><?php echo $row['emplacement']; ?></td>
-                                <td><?php echo $row['surface']; ?></td>
-                                <td><?php echo $row['annee']; ?></td>
-                                <td><?php echo $row['statut']; ?></td>
-                                <td><?php echo $row['description']; ?></td>
-                                <td><img src="assets/img/<?php echo $row['img_princ']; ?>" width="50" height="50"></td>
-                                <td><img src="assets/img/<?php echo $row['img_sec']; ?>" width="50" height="50"></td>
+                                <td><?php echo $row['nb_etoile']; ?></td>
+                                <td><?php echo $row['avis']; ?></td>
+                                <td><img src="assets/img/<?php echo $row['img']; ?>" width="50" height="50"></td>
                                 <td>
-                                    <a href="delete.php?id_proj=<?= $row['id']; ?>">Supprimer</a>
+                                    <a href="delete.php?id_client=<?= $row['id']; ?>">Supprimer</a>
                                     <a href="modifForm.php?id_proj=<?php echo $row['id']; ?>">Modifier</a>
                                 </td>
                             </tr>
